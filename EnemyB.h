@@ -9,8 +9,23 @@
 #include "Entities.h"
 
 class EnemyB : public Entities{
+private:
+    int ts = 18;
 public:
     EnemyB();
+
+    void move() {}
+
+    void onEvent(sf::Event &event);
+    void onUpdate();
+    void onRender(sf::RenderWindow &window);
+
+    int getx() {
+        return Entities::getx();
+    };
+    int gety() {
+        return Entities::gety();
+    };
 };
 
 

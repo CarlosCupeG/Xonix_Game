@@ -25,5 +25,8 @@ using namespace std;
 #define TS int(18);
 const int M = 25;
 const int N = 40;
-
+#ifndef MAPA_GAME
+#define MAPA_GAME
+int mapa[25][40];
+#endif
 #endif //XONIX_SETTINGS_H

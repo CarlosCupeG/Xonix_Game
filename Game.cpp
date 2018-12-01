@@ -3,7 +3,6 @@
 //
 
 #include "Game.h"
-#include "Player.h"
 
 Game::Game()
 : Scene("resources/images/back_game.png"){
@@ -11,6 +10,7 @@ Game::Game()
     puntaje = -126;
     progreso = 0;
     nivel = 1;
+    timer = 0;
     freeze = false;
     game = true;
     ts = TS;
@@ -19,8 +19,32 @@ Game::Game()
 void Game::init() {
     Scene::init();
     Entities *player = new Player();
+    Entities *enemy_1 = new EnemyA();
+    Entities *enemy_2 = new EnemyA();
+    Entities *enemy_3 = new EnemyA();
+    Entities *enemy_4 = new EnemyA();
+    Entities *enemy_5 = new EnemyB();
+    Entities *enemy_6 = new EnemyB();
+    Entities *enemy_7 = new EnemyB();
+    Entities *enemy_8 = new EnemyB();
+    Entities *helado_9 = new Drops();
+    Entities *platano_10 = new Drops();
+
     currentPlayer = reinterpret_cast<Player *>(player);
+    helado = reinterpret_cast<Drops *>(helado_9);
+    platano = reinterpret_cast<Drops *>(platano_10);
     Scene::addEntity(player);
+    Scene::addEntity(enemy_1);
+    Scene::addEntity(enemy_2);
+    Scene::addEntity(enemy_3);
+    Scene::addEntity(enemy_4);
+    Scene::addEntity(enemy_5);
+    Scene::addEntity(enemy_6);
+    Scene::addEntity(enemy_7);
+    Scene::addEntity(enemy_8);
+    Scene::addEntity(helado_9);
+    Scene::addEntity(platano_10);
+
 
     font.loadFromFile("cabeza.TTF");
 
@@ -94,199 +118,161 @@ void Game::onUpdate() {
             textArray[i].setFillColor(Color::White);
     }
 
+    timer += clock.getElapsedTime().asSeconds();
+    clock.restart();
 
-    //qué son estos? -> reemplazar por el size()
-    int enemyCount = 4;
-    int enemy2222 = 4;
+    if (timer > currentPlayer->getVelocidad()) {
+        currentPlayer->opConMyN();
 
-    //set timer
-    double timer = 0;
+        bool aaa = true;
 
-    float effectTimerPlatano = 0;
-    float effectTimerHelado = 0;
-
-
-    int n = 1;
-    //loop del juego
-    while (window.isOpen()) {
-
-        //uso del timer (para que la velocidad funcione bien)
-        timer += clock.getElapsedTime().asSeconds();
-        clock.restart();
-
-
-        if (!Game) continue;
-
-        if (timer > jugador->getVelocidad()) {
-            jugador->opConMyN();
-
-            bool aaa = true;
-
-            if (mapa[jugador->gety()][jugador->getx()] == 2) {
-                for (int i = 0; i < M; i++)
-                    for (int j = 0; j < N; j++)
-                        if (mapa[i][j] == 2) {
-                            mapa[i][j] = 0;
-                        };
-
-                mapa[jugador->gety()][jugador->getx()] = 0;
-                Game = false;
-                aaa = false;
-            }
-            if (mapa[jugador->gety()][jugador->getx()] == 0) if (aaa == true) mapa[jugador->gety()][jugador->getx()] = 2;
-            timer = 0;
-        }
-
-        //mover a los enemigos
-        if (freeze == false) {
-            for (int i = 0; i < enemyCount; i++) arrayEnemy1[i].move();
-
-            for (int j = 0; j < enemy2222; j++) arrayEnemy2[j].move();
-        }
-
-        //parte posiblemente relacionada con las posiciones y relleno - en todo caso, IMPORTANTE!
-        if (mapa[jugador->gety()][jugador->getx()] == 1) {
-            jugador->resetDxDy();
-
-            //rellena los tiles
-            for (int i = 0; i < enemyCount; i++)
-                rellenarTiles((arrayEnemy1[i]).gety() / ts, (arrayEnemy2[i]).getx() / ts);
-
+        if (mapa[currentPlayer->gety()][currentPlayer->getx()] == 2) {
             for (int i = 0; i < M; i++)
                 for (int j = 0; j < N; j++)
-                    if (mapa[i][j] == -1) mapa[i][j] = 0;
-                    else mapa[i][j] = 1;
+                    if (mapa[i][j] == 2) {
+                        mapa[i][j] = 0;
+                    };
+
+            mapa[currentPlayer->gety()][currentPlayer->getx()] = 0;
+            game = false;
+            aaa = false;
+        }
+        if (mapa[currentPlayer->gety()][currentPlayer->getx()] == 0) if (aaa == true) mapa[currentPlayer->gety()][currentPlayer->getx()] = 2;
+        timer = 0;
+    }
+
+    if (freeze == false) {
+        for (int i = 1; i < 5; i++) entity[i]->onUpdate();
+
+        for (int j = 5; j < 9; j++) entity[j]->onUpdate();
+    }
+
+    //parte posiblemente relacionada con las posiciones y relleno
+    if (mapa[currentPlayer->gety()][currentPlayer->getx()] == 1) {
+        currentPlayer->resetDxDy();
+
+        //rellena los tiles
+        for (int i = 0; i < 5; i++)
+            rellenarTiles((entity[i + 1])->gety() / ts, (entity[i + 5])->getx() / ts);
+
+        for (auto &i : mapa) {
+            for (int &j : i)
+                if (j == -1) j = 0;
+                else j = 1;
         }
 
-        for (int i = 0; i < enemyCount; i++) {
+    }
 
-            if (mapa[arrayEnemy1[i].gety() / ts][arrayEnemy1[i].getx() / ts] == 2) {
-                for (int i = 0; i < M; i++)
-                    for (int j = 0; j < N; j++)
-                        if (mapa[i][j] == 2) mapa[i][j] = 0;
-                Game = false;
+    for (int i = 0; i < 5; i++) {
 
-            }
-        }
-        /////////draw//////////
-
-
-        //determina el puntaje
-        for (int i = 0; i < M; i++)
-            for (int j = 0; j < N; j++)
-            {
-                if (mapa[i][j] == 1) {
-                    puntaje = puntaje + 1;
-                }
-
-                if (mapa[i][j] == 0) continue;
-                if (mapa[i][j] == 1) sPlayer.setTextureRect(IntRect(0, 0, ts, ts));
-                if (mapa[i][j] == 2) sPlayer.setTextureRect(IntRect(54, 0, ts, ts));
-                if (mapa[i][j] == 3) sPlayer.setTextureRect(IntRect(72, 0, ts, ts));
-                sPlayer.setPosition(j * ts, i * ts);
-
-            }
-
-        //no es lo mismo que el anterior? qué hace?
-        sPlayer.setTextureRect(IntRect(18, 0, ts, ts));
-        sPlayer.setPosition(jugador->getx()*ts, jugador->gety()*ts);
-
-
-        progreso = progreso + puntaje * 100 / 874;
-
-        for (int i = 0; i < enemyCount; i++) {
-            sEnemy.setPosition(arrayEnemy1[i].getx(), arrayEnemy1[i].gety());
-            window.draw(sEnemy);
-        }
-        for (int j = 0; j < enemyCount; j++) {
-            senemy2.setPosition(arrayEnemy2[j].getx(), arrayEnemy2[j].gety());
-            window.draw(senemy2);
-        }
-
-        //aparición de los drops
-        if (puntaje > 100 && Platano.fueUsado() == true) {
-            window.draw(sPlatano);
-        }
-        if (puntaje > 300 && Helado.fueUsado() == true) {
-            window.draw(sHelado);
-        }
-
-        //Efectos del plátano (añadir instrucciones al inicio?)
-        if (jugador->getx() == Platano.getx() / 18 && jugador->gety() == Platano.gety() / 18) {
-            Platano.usar();
-            jugador->setVelocidad(0.04);
-            effectTimerPlatano = timer;
-        }
-
-        //tiempo de uso del platano y vuelta a velocidad normal
-        if (!Platano.fueUsado() && effectTimerPlatano < 1) {
-            effectTimerPlatano += 0.001;
-        }
-        else if (!Platano.fueUsado() && effectTimerPlatano == 1) {
-            jugador->setVelocidad(0.07);
-        }
-
-        //Efectos del helado
-        if (puntaje > 300 && jugador->getx() == Helado.getx() / 18 && jugador->gety() == Helado.gety() / 18) {
-            Helado.usar();
-            effectTimerHelado = timer;
-            freeze = true;
-        }
-
-        //tiempo de uso del helado y vuelta a movimiento
-        if (!Helado.fueUsado() && effectTimerHelado < 1) {
-            effectTimerHelado += 0.005;
-        }
-        else if (!Helado.fueUsado() && effectTimerHelado >= 1) {
-            freeze = false;
-        }
-
-        //matienen los muros protegidos
-        for (int x = 0; x < 25; x++) {
-            if (mapa[x][0] != 1) {
-                mapa[x][0] = 1;
-            }
-            if (mapa[x][39] != 1) {
-                mapa[x][39] = 1;
-            }
-        }
-
-
-        //¿final del juego? no queda claro por qué hay dos casus
-        if (progreso > 80) {
-            swin.play();
-            sganaste.setOrigin(-130, -110);
-            window.draw(sganaste);
-            Game = false;
-            sound.pause();
-            vidas = vidas + 1;
-            nivel = nivel + 1;
+        if (mapa[entity[i + 1]->gety() / ts][entity[i + 5]->getx() / ts] == 2) {
+            for (int i = 0; i < M; i++)
+                for (int j = 0; j < N; j++)
+                    if (mapa[i][j] == 2) mapa[i][j] = 0;
+            game = false;
 
         }
-        if (vidas > 0) {
-            if (!Game) {
-                vidas = vidas - 1;
-                cadena = to_string(vidas);
-                if (vidas > 0) {
-                    ssmuerte.play();
-                }
-                jugador->setx(0); jugador->sety(0);
-                Game = true;
-            }
-        }
-        else {
-            sGameover.setOrigin(-130, -110);
-            window.draw(sGameover);
-            sound.pause();
-            ssgaov.play();
-            Game = false;
-        }
-
-        //no quitar - se bugea feo
-        progreso = 0;
-        puntaje = -126;
     }
 
 
+    //determina el puntaje
+    for (int i = 0; i < M; i++)
+        for (int j = 0; j < N; j++)
+        {
+            if (mapa[i][j] == 1) {
+                puntaje = puntaje + 1;
+            }
+
+            if (mapa[i][j] == 0) continue;
+            if (mapa[i][j] == 1) (currentPlayer)->setTextureRect(IntRect(0, 0, ts, ts));
+            if (mapa[i][j] == 2) (currentPlayer)->setTextureRect(IntRect(54, 0, ts, ts));
+            if (mapa[i][j] == 3) (currentPlayer)->setTextureRect(IntRect(72, 0, ts, ts));
+            (currentPlayer)->setPosition(j * ts, i * ts);
+        }
+
+    (currentPlayer)->setTextureRect(IntRect(18, 0, ts, ts));
+    (currentPlayer)->setPosition((currentPlayer)->getx()*ts, (currentPlayer)->gety()*ts);
+
+    progreso = progreso + puntaje * 100 / 874;
+
+
+
+
+    //matienen los muros protegidos
+    for (int x = 0; x < 25; x++) {
+        if (mapa[x][0] != 1) {
+            mapa[x][0] = 1;
+        }
+        if (mapa[x][39] != 1) {
+            mapa[x][39] = 1;
+        }
+    }
+
+    platano->setPuntaje(puntaje > 100);
+    helado->setPuntaje(puntaje > 300);
+
+    //Efectos del plátano (añadir instrucciones al inicio?)
+    if ((currentPlayer)->getx() == platano->getx() / 18 && (currentPlayer)->gety() == platano->gety() / 18) {
+        platano->usar();
+        (currentPlayer)->setVelocidad(0.04);
+        effectTimerPlatano = timer;
+    }
+
+    //tiempo de uso del platano y vuelta a velocidad normal
+    if (platano->fueUsado() && effectTimerPlatano < 1) {
+        effectTimerPlatano += 0.001;
+    }
+    else if (!platano->fueUsado() && effectTimerPlatano == 1) {
+        (currentPlayer)->setVelocidad(0.07);
+    }
+
+    //Efectos del helado
+    if (puntaje > 300 && (currentPlayer)->getx() == helado->getx() / 18 && (currentPlayer)->gety() == helado->gety() / 18) {
+        helado->usar();
+        effectTimerHelado = timer;
+        freeze = true;
+    }
+
+    //tiempo de uso del helado y vuelta a movimiento
+    if (!helado->fueUsado() && effectTimerHelado < 1) {
+        effectTimerHelado += 0.005;
+    }
+    else if (!helado->fueUsado() && effectTimerHelado >= 1) {
+        freeze = false;
+    }
+
+
+
+    //¿final del juego? no queda claro por qué hay dos casus
+    if (progreso > 80) {
+        //swin.play();
+        //sganaste.setOrigin(-130, -110);
+        //window.draw(sganaste);
+        game = false;
+        //sound.pause();
+        vidas = vidas + 1;
+        nivel = nivel + 1;
+
+    }
+    if (vidas > 0) {
+        if (!game) {
+            vidas = vidas - 1;
+            if (vidas > 0) {
+                //ssmuerte.play();
+            }
+            (currentPlayer)->setx(0); (currentPlayer)->sety(0);
+            game = true;
+        }
+    }
+    else {
+        //sGameover.setOrigin(-130, -110);
+        //sound.pause();
+        //ssgaov.play();
+        game = false;
+    }
+
+    //no quitar - se bugea feo
+    progreso = 0;
+    puntaje = -126;
 
 }

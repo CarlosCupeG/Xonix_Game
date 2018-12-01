@@ -3,4 +3,4 @@ project(Xonix)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(Xonix main.cpp settings.h Menu.cpp Menu.h cmake-build-debug/Player.cpp cmake-build-debug/Player.h Game.cpp Game.h Player.cpp Player.h EnemyA.cpp EnemyA.h EnemyB.cpp EnemyB.h)
+add_executable(Xonix main.cpp settings.h Menu.cpp Menu.h cmake-build-debug/Player.cpp cmake-build-debug/Player.h Game.cpp Game.h Player.cpp Player.h EnemyA.cpp EnemyA.h EnemyB.cpp EnemyB.h Drops.cpp Drops.h)

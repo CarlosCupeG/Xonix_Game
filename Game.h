@@ -8,6 +8,9 @@
 
 #include "Scene.h"
 #include "Player.h"
+#include "EnemyA.h"
+#include "EnemyB.h"
+#include "Drops.h"
 #include "settings.h"
 
 
@@ -20,9 +23,14 @@ private:
     int progreso = 0;
     int nivel = 1;
     bool freeze = false;
-    int mapa[25][40] = { 0 };
+    double timer;
+
+    float effectTimerPlatano = 0;
+    float effectTimerHelado = 0;
 
     Player *currentPlayer;
+    Drops *helado;
+    Drops *platano;
     Font font;
     vector<sf::Text> textArray;
     int textPosX[8] = {150, 5, 475, 325, 90, 250, 625, 420};

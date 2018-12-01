@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/zero/CLionProjects/Xonix/Drops.cpp" "/home/zero/CLionProjects/Xonix/cmake-build-debug/CMakeFiles/Xonix.dir/Drops.cpp.o"
   "/home/zero/CLionProjects/Xonix/EnemyA.cpp" "/home/zero/CLionProjects/Xonix/cmake-build-debug/CMakeFiles/Xonix.dir/EnemyA.cpp.o"
   "/home/zero/CLionProjects/Xonix/EnemyB.cpp" "/home/zero/CLionProjects/Xonix/cmake-build-debug/CMakeFiles/Xonix.dir/EnemyB.cpp.o"
   "/home/zero/CLionProjects/Xonix/Game.cpp" "/home/zero/CLionProjects/Xonix/cmake-build-debug/CMakeFiles/Xonix.dir/Game.cpp.o"

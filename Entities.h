@@ -32,6 +32,7 @@ public:
 
     int getx() { return x; };
     int gety() { return y; };
+    virtual void move() = 0;
 };
 
 

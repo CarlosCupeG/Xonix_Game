@@ -123,6 +123,33 @@ Xonix/fast:
 	$(MAKE) -f CMakeFiles/Xonix.dir/build.make CMakeFiles/Xonix.dir/build
 .PHONY : Xonix/fast
 
+Drops.o: Drops.cpp.o
+
+.PHONY : Drops.o
+
+# target to build an object file
+Drops.cpp.o:
+	$(MAKE) -f CMakeFiles/Xonix.dir/build.make CMakeFiles/Xonix.dir/Drops.cpp.o
+.PHONY : Drops.cpp.o
+
+Drops.i: Drops.cpp.i
+
+.PHONY : Drops.i
+
+# target to preprocess a source file
+Drops.cpp.i:
+	$(MAKE) -f CMakeFiles/Xonix.dir/build.make CMakeFiles/Xonix.dir/Drops.cpp.i
+.PHONY : Drops.cpp.i
+
+Drops.s: Drops.cpp.s
+
+.PHONY : Drops.s
+
+# target to generate assembly for a file
+Drops.cpp.s:
+	$(MAKE) -f CMakeFiles/Xonix.dir/build.make CMakeFiles/Xonix.dir/Drops.cpp.s
+.PHONY : Drops.cpp.s
+
 EnemyA.o: EnemyA.cpp.o
 
 .PHONY : EnemyA.o
@@ -297,6 +324,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... Xonix"
+	@echo "... Drops.o"
+	@echo "... Drops.i"
+	@echo "... Drops.s"
 	@echo "... EnemyA.o"
 	@echo "... EnemyA.i"
 	@echo "... EnemyA.s"

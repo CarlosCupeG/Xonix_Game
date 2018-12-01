@@ -5,6 +5,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Xonix.dir/Game.cpp.o"
   "CMakeFiles/Xonix.dir/EnemyA.cpp.o"
   "CMakeFiles/Xonix.dir/EnemyB.cpp.o"
+  "CMakeFiles/Xonix.dir/Drops.cpp.o"
   "Xonix.pdb"
   "Xonix"
 )

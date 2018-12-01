@@ -16,6 +16,8 @@ public:
     void onUpdate() override;
     void onRender(sf::RenderWindow &window) override;
 
+    void move() {}
+
     void moveLeft() {
         dx = -1;
         dy = 0;
