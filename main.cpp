@@ -8,5 +8,5 @@ int main() {
     return 0;
 }
 
-// g++ main.cpp Scene.cpp Entities.cpp Game.cpp GameEngine.cpp Menu.cpp Player.cpp settings.h EnemyA.cpp EnemyB.cpp -o main -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
+// g++ main.cpp Scene.cpp Entities.cpp Game.cpp GameEngine.cpp Menu.cpp Player.cpp settings.h EnemyA.cpp EnemyB.cpp Drops.cpp -o main -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 // g++ main.cpp Scene.cpp Scene.h Entities.cpp Entities.h Game.cpp Game.h GameEngine.cpp GameEngine.h Menu.h Menu.cpp Player.cpp Player.h settings.h -o main -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio

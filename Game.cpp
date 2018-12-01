@@ -45,7 +45,6 @@ void Game::init() {
     Scene::addEntity(helado_9);
     Scene::addEntity(platano_10);
 
-
     font.loadFromFile("cabeza.TTF");
 
     string stringArray[] = {"Vidas:  ", "Score:  ", "Progreso:", "Nivel:", to_string(puntaje), to_string(vidas), to_string(progreso), to_string(nivel)};
@@ -121,6 +120,7 @@ void Game::onUpdate() {
     timer += clock.getElapsedTime().asSeconds();
     clock.restart();
 
+
     if (timer > currentPlayer->getVelocidad()) {
         currentPlayer->opConMyN();
 
@@ -140,6 +140,11 @@ void Game::onUpdate() {
         if (mapa[currentPlayer->gety()][currentPlayer->getx()] == 0) if (aaa == true) mapa[currentPlayer->gety()][currentPlayer->getx()] = 2;
         timer = 0;
     }
+
+    for (int i = 1; i < 5; i++) ((EnemyA*)entity[i])->setMap(mapa);
+
+    for (int j = 5; j < 9; j++) ((EnemyB*)entity[j])->setMap(mapa);
+
 
     if (freeze == false) {
         for (int i = 1; i < 5; i++) entity[i]->onUpdate();

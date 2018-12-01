@@ -28,6 +28,10 @@ private:
     float effectTimerPlatano = 0;
     float effectTimerHelado = 0;
 
+    int mapa[25][40] = {0};
+
+    vector<vector<int>> map();
+
     Player *currentPlayer;
     Drops *helado;
     Drops *platano;
