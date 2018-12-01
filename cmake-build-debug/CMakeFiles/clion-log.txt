@@ -1,0 +1,5 @@
+/home/zero/Programas/clion-2018.2.4/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/zero/CLionProjects/Xonix
+-- Configuring done
+Warning: Source file "/home/zero/CLionProjects/Xonix/Player.cpp" is listed multiple times for target "Xonix".
+-- Generating done
+-- Build files have been written to: /home/zero/CLionProjects/Xonix/cmake-build-debug

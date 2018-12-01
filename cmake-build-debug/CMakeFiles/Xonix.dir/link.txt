@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/Xonix.dir/main.cpp.o CMakeFiles/Xonix.dir/Menu.cpp.o CMakeFiles/Xonix.dir/Player.cpp.o CMakeFiles/Xonix.dir/Game.cpp.o CMakeFiles/Xonix.dir/EnemyA.cpp.o CMakeFiles/Xonix.dir/EnemyB.cpp.o  -o Xonix 

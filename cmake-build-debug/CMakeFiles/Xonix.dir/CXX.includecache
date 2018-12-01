@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/zero/CLionProjects/Xonix/Entities.h
+settings.h
+/home/zero/CLionProjects/Xonix/settings.h
+
+/home/zero/CLionProjects/Xonix/Menu.cpp
+Menu.h
+/home/zero/CLionProjects/Xonix/Menu.h
+
+/home/zero/CLionProjects/Xonix/Menu.h
+Scene.h
+/home/zero/CLionProjects/Xonix/Scene.h
+settings.h
+/home/zero/CLionProjects/Xonix/settings.h
+
+/home/zero/CLionProjects/Xonix/Scene.h
+settings.h
+/home/zero/CLionProjects/Xonix/settings.h
+Entities.h
+/home/zero/CLionProjects/Xonix/Entities.h
+
+/home/zero/CLionProjects/Xonix/settings.h
+iostream
+-
+string
+-
+SFML/Graphics.hpp
+-
+SFML/Audio.hpp
+-
+SFML/System.hpp
+-
+SFML/Window.hpp
+-
+

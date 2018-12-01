@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Xonix"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/zero/CLionProjects/Xonix/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/zero/CLionProjects/Xonix/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/zero/CLionProjects/Xonix/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/zero/CLionProjects/Xonix/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/zero/CLionProjects/Xonix/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/zero/CLionProjects/Xonix/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/zero/CLionProjects/Xonix/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/zero/CLionProjects/Xonix/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/zero/CLionProjects/Xonix/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/zero/CLionProjects/Xonix/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/zero/CLionProjects/Xonix/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/zero/CLionProjects/Xonix/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/zero/CLionProjects/Xonix/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/zero/CLionProjects/Xonix/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/zero/CLionProjects/Xonix/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Xonix">
+				<Option output="/home/zero/CLionProjects/Xonix/cmake-build-debug/Xonix" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/zero/CLionProjects/Xonix/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/6"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
+					<Add directory="/usr/include/c++/6/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/zero/CLionProjects/Xonix/cmake-build-debug/Makefile&quot;  VERBOSE=1 Xonix"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/zero/CLionProjects/Xonix/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/zero/CLionProjects/Xonix/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/zero/CLionProjects/Xonix/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Xonix/fast">
+				<Option output="/home/zero/CLionProjects/Xonix/cmake-build-debug/Xonix" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/zero/CLionProjects/Xonix/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/6"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
+					<Add directory="/usr/include/c++/6/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/zero/CLionProjects/Xonix/cmake-build-debug/Makefile&quot;  VERBOSE=1 Xonix/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/zero/CLionProjects/Xonix/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/zero/CLionProjects/Xonix/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/zero/CLionProjects/Xonix/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/zero/CLionProjects/Xonix/EnemyA.cpp">
+			<Option target="Xonix"/>
+		</Unit>
+		<Unit filename="/home/zero/CLionProjects/Xonix/EnemyA.h">
+			<Option target="Xonix"/>
+		</Unit>
+		<Unit filename="/home/zero/CLionProjects/Xonix/EnemyB.cpp">
+			<Option target="Xonix"/>
+		</Unit>
+		<Unit filename="/home/zero/CLionProjects/Xonix/EnemyB.h">
+			<Option target="Xonix"/>
+		</Unit>
+		<Unit filename="/home/zero/CLionProjects/Xonix/Game.cpp">
+			<Option target="Xonix"/>
+		</Unit>
+		<Unit filename="/home/zero/CLionProjects/Xonix/Game.h">
+			<Option target="Xonix"/>
+		</Unit>
+		<Unit filename="/home/zero/CLionProjects/Xonix/Menu.cpp">
+			<Option target="Xonix"/>
+		</Unit>
+		<Unit filename="/home/zero/CLionProjects/Xonix/Menu.h">
+			<Option target="Xonix"/>
+		</Unit>
+		<Unit filename="/home/zero/CLionProjects/Xonix/Player.cpp">
+			<Option target="Xonix"/>
+		</Unit>
+		<Unit filename="/home/zero/CLionProjects/Xonix/Player.h">
+			<Option target="Xonix"/>
+		</Unit>
+		<Unit filename="/home/zero/CLionProjects/Xonix/cmake-build-debug/Player.cpp">
+			<Option target="Xonix"/>
+		</Unit>
+		<Unit filename="/home/zero/CLionProjects/Xonix/cmake-build-debug/Player.h">
+			<Option target="Xonix"/>
+		</Unit>
+		<Unit filename="/home/zero/CLionProjects/Xonix/main.cpp">
+			<Option target="Xonix"/>
+		</Unit>
+		<Unit filename="/home/zero/CLionProjects/Xonix/settings.h">
+			<Option target="Xonix"/>
+		</Unit>
+		<Unit filename="/home/zero/CLionProjects/Xonix/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
